@@ -5,6 +5,7 @@
       <h1>{{ game.name }}</h1>
       <h2>{{ game.price }}</h2>
       <img v-bind:src="game.cover_art" v-bind:alt="game.name" contain height="200px" width="300px" />
+      <router-link v-bind:to="`/games/${game.id}`">Game Info</router-link>
     </div>
   </div>
 </template>
