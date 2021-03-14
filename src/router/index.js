@@ -4,6 +4,9 @@ import Home from "../views/Home.vue";
 import GamesIndex from "../views/GamesIndex.vue";
 import GamesShow from "../views/GamesShow.vue";
 import ReviewsIndex from "../views/ReviewsIndex.vue";
+import Signup from "../views/Signup.vue";
+import Login from "../views/Login.vue";
+import Logout from "../views/Logout.vue";
 
 Vue.use(VueRouter);
 
@@ -32,9 +35,24 @@ const routes = [
     component: GamesShow,
   },
   {
-    path: "/reviews/",
+    path: "/reviews",
     name: "review-show",
     component: ReviewsIndex,
+  },
+  {
+    path: "/signup",
+    name: "signup-show",
+    component: Signup,
+  },
+  {
+    path: "/login",
+    name: "login-show",
+    component: Login,
+  },
+  {
+    path: "/logout",
+    name: "logout",
+    component: Logout,
   },
 ];
 
