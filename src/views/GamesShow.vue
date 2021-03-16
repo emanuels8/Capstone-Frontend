@@ -4,7 +4,9 @@
     <h2>{{ game.price }}</h2>
     <img v-bind:src="game.cover_art" v-bind:alt="game.name" contain height="200px" width="300px" />
     <h4>{{ game.description }}</h4>
-    <h2>{{ game.review_usernames }}</h2>
+    <div v-for="review in game.review_usernames" v-bind:key="review.id">
+      <h2>{{ review }}</h2>
+    </div>
     <div v-for="game in game.review_info" v-bind:key="game.id">
       <h2>{{ game.description }}</h2>
       <h2>{{ game.rating }}</h2>
