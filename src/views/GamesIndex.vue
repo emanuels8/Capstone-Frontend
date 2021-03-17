@@ -1,11 +1,27 @@
 <template>
   <div class="games-index">
-    <h1>All Games</h1>
     <div v-for="game in games" v-bind:key="game.id">
-      <h1>{{ game.name }}</h1>
-      <h2>{{ game.price }}</h2>
-      <img v-bind:src="game.cover_art" v-bind:alt="game.name" contain height="200px" width="300px" />
-      <router-link v-bind:to="`/games/${game.id}`">Game Info</router-link>
+      <section id="portfolio" class="portfolio">
+        <div class="container">
+          <div class="section-title" data-aos="fade-left"></div>
+          <div class="col-lg-12 d-flex justify-content-between">
+            <div class="col-lg-4 col-md-6">
+              <div class="portfolio-wrap">
+                <img v-bind:src="game.cover_art" v-bind:alt="game.name" contain height="250px" width="450px" />
+                <div class="portfolio-info">
+                  <h4>{{ game.name }}</h4>
+                  <h4>Price {{ game.price }}$</h4>
+                  <div class="portfolio-links">
+                    <router-link v-bind:to="`/games/${game.id}`">
+                      <h4>More Info</h4>
+                    </router-link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   </div>
 </template>
