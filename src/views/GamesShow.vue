@@ -3,7 +3,8 @@
     <section id="portfolio-details" class="portfolio-details">
       <div class="container">
         <h1>{{ game.name }}</h1>
-        <h1>{{ game.price }}</h1>
+        <h1>{{ game.price }} $</h1>
+        <h1>Game Rating {{ game.avg_rating }}</h1>
 
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-indicators">
@@ -85,6 +86,25 @@
             </p>
           </div>
         </div>
+        <div>
+          <h3>Games For You</h3>
+
+          <div v-for="game in game.rpg.slice(1)" v-bind:key="game.id">
+            <p>{{ game.name }}</p>
+            <p>{{ game.price }}</p>
+            <img v-bind:src="game.cover_art" contain height="100px" width="150px" />
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <ul>
+            <li>
+              <strong>Tags</strong>
+              <div v-for="game in game.genre_name" v-bind:key="game.id">
+                <p>{{ game }}</p>
+              </div>
+            </li>
+          </ul>
+        </div>
         <div class="row gy-4">
           <div class="col-lg-8">
             <div class="portfolio-details-slider swiper-container">
@@ -105,21 +125,11 @@
             </div>
           </div>
 
-          <div class="col-lg-4">
-            <div class="portfolio-info">
-              <ul>
-                <li>
-                  <strong>Tags</strong>
-                  <div v-for="game in game.genre_name" v-bind:key="game.id">
-                    <p>{{ game }}</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
+          <div class="col-lg-4"></div>
         </div>
       </div>
     </section>
+
     <div class="container">
       <div class="row bootstrap snippets bootdeys">
         <div class="col-md-8 col-sm-12">
@@ -128,7 +138,7 @@
               Review Section
             </div>
             <div class="panel-body">
-              <textarea class="form-control" placeholder="write a comment..." rows="3"></textarea>
+              <textarea class="form-control" placeholder="write a review..." rows="3"></textarea>
               <br />
               <button type="button" class="btn btn-info pull-right">Post</button>
               <div class="clearfix"></div>
@@ -146,6 +156,8 @@
                   />
                   <div>
                     <strong class="text-success">{{ review.username }}</strong>
+                    {{ review.rating }}
+
                     <a href="#" class="pull-right"></a>
 
                     <p>
@@ -161,11 +173,7 @@
     </div>
   </div>
 </template>
-<style scoped>
-.description {
-  word-wrap: break-word;
-}
-</style>
+<style scoped></style>
 
 <script>
 import axios from "axios";

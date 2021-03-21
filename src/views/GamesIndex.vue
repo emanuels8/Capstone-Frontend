@@ -27,6 +27,7 @@
               <div class="portfolio-info">
                 <h4>{{ game.name }}</h4>
                 <h4>Price {{ game.price }}$</h4>
+                <h4>Rating {{ game.rating }}</h4>
                 <div class="portfolio-links">
                   <router-link v-bind:to="`/games/${game.id}`">
                     <h4>More Info</h4>
