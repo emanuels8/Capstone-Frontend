@@ -1,22 +1,31 @@
 <template>
   <div class="login">
-    <form v-on:submit.prevent="submit()">
-      <h1>Login</h1>
-      <ul>
-        <li class="text-danger" v-for="error in errors" v-bind:key="error">
-          {{ error }}
-        </li>
-      </ul>
-      <div class="form-group">
-        <label>Email:</label>
-        <input type="email" class="form-control" v-model="email" />
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4" data-aos="fade-right">
+            <div class="section-title"></div>
+          </div>
+          <form v-on:submit.prevent="submit()">
+            <h1>Login</h1>
+            <ul>
+              <li class="text-danger" v-for="error in errors" v-bind:key="error">
+                {{ error }}
+              </li>
+            </ul>
+            <div class="form-group">
+              <label>Email:</label>
+              <input type="email" class="form-control" v-model="email" />
+            </div>
+            <div class="form-group">
+              <label>Password:</label>
+              <input type="password" class="form-control" v-model="password" />
+            </div>
+            <input type="submit" class="btn btn-primary" value="Submit" />
+          </form>
+        </div>
       </div>
-      <div class="form-group">
-        <label>Password:</label>
-        <input type="password" class="form-control" v-model="password" />
-      </div>
-      <input type="submit" class="btn btn-primary" value="Submit" />
-    </form>
+    </section>
   </div>
 </template>
 
@@ -42,7 +51,7 @@ export default {
         .then(response => {
           axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
           localStorage.setItem("jwt", response.data.jwt);
-          this.$router.push("/");
+          this.$router.push("/api/games");
         })
         .catch(error => {
           console.log(error.response);

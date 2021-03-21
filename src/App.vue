@@ -2,11 +2,18 @@
   <div id="app">
     <!-- ======= Header ======= -->
     <header id="header" class="fixed  align-items-center">
+      <link
+        href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+        rel="stylesheet"
+        id="bootstrap-css"
+      />
       <div class="container">
         <div class="header-container align-items-center justify-content-between">
           <div class="logo">
             <h1 class="text-light">
-              <a href="/http://localhost:8080/games"><span>Good Games</span></a>
+              <a href="http://localhost:8080/games">
+                <span>Good Games</span>
+              </a>
             </h1>
           </div>
 
