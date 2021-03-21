@@ -2,21 +2,103 @@
   <div class="games-show">
     <section id="portfolio-details" class="portfolio-details">
       <div class="container">
+        <h1>{{ game.name }}</h1>
+        <h1>{{ game.price }}</h1>
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                v-bind:src="game.cover_art"
+                v-bind:alt="game.name"
+                contain
+                height="400px"
+                width="350px"
+                class="d-block w-100"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="https://cdn.akamai.steamstatic.com/steam/apps/892970/ss_31c19dc3adf3de8c982f58181c207fa619a15d97.600x338.jpg?t=1615295984"
+                contain
+                height="400px"
+                width="350px"
+                class="d-block w-100"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="https://cdn.akamai.steamstatic.com/steam/apps/892970/ss_2b2e2bb44df7cabd0fc7af704dd1db47d84595e1.600x338.jpg?t=1615295984"
+                contain
+                height="400px"
+                width="350px"
+                class="d-block w-100"
+              />
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <div class="portfolio-description">
+          <h2>Game Info</h2>
+          <div>
+            <p>
+              {{ game.description }}
+            </p>
+          </div>
+        </div>
         <div class="row gy-4">
           <div class="col-lg-8">
             <div class="portfolio-details-slider swiper-container">
               <div class="swiper-wrapper align-items-center">
                 <div class="swiper-slide">
-                  <img v-bind:src="game.cover_art" v-bind:alt="game.name" contain height="500px" width="800px" />
+                  <!-- <img v-bind:src="game.cover_art" v-bind:alt="game.name" contain height="450px" width="500px" /> -->
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="assets/img/portfolio/portfolio-details-2.jpg" alt="" />
+                  <img src="/assets/img/portfolio/portfolio-details-2.jpg" alt="" />
                 </div>
 
-                <!-- <div class="swiper-slide"> -->
-                <!-- <img src="assets/img/portfolio/portfolio-details-3.jpg" alt="" />
-                </div> -->
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio/portfolio-details-3.jpg" alt="" />
+                </div>
               </div>
               <div class="swiper-pagination"></div>
             </div>
@@ -24,13 +106,7 @@
 
           <div class="col-lg-4">
             <div class="portfolio-info">
-              <h3>{{ game.name }}</h3>
               <ul>
-                <li>
-                  <strong>Price</strong>
-                  {{ game.price }}
-                </li>
-
                 <li>
                   <strong>Tags</strong>
                   <div v-for="game in game.genre_name" v-bind:key="game.id">
@@ -39,30 +115,51 @@
                 </li>
               </ul>
             </div>
-            <div class="portfolio-description">
-              <h2>Game Info</h2>
-              <p>
-                {{ game.description }}
-              </p>
-            </div>
           </div>
         </div>
       </div>
     </section>
-    <div>
-      <h1>{{ game.name }}</h1>
-      <h2>{{ game.price }}</h2>
-      <img v-bind:src="game.cover_art" v-bind:alt="game.name" contain height="200px" width="300px" />
-      <h4>{{ game.description }}</h4>
-
-      <div v-for="review in game.Reviews" v-bind:key="review.id">
-        <div>
-          <h2>{{ review.username }}</h2>
-          <h2>{{ review.description }}</h2>
-          <h2>{{ review.rating }}</h2>
+    <div class="container">
+      <div class="row bootstrap snippets bootdeys">
+        <div class="col-md-8 col-sm-12">
+          <div class="comment-wrapper">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                Review Section
+              </div>
+              <div class="panel-body">
+                <textarea class="form-control" placeholder="write a comment..." rows="3"></textarea>
+                <br />
+                <button type="button" class="btn btn-info pull-right">Post</button>
+                <div class="clearfix"></div>
+              </div>
+              <div class="comment-wrapper">
+                <div v-for="review in game.Reviews" v-bind:key="review.id">
+                  <div>
+                    <img
+                      src="https://bootdey.com/img/Content/user_1.jpg"
+                      alt=""
+                      class="img-square"
+                      contain
+                      height="60px"
+                      width="60px"
+                    />
+                    <div>
+                      <strong class="text-success">{{ review.username }}</strong>
+                      <a href="#" class="pull-right"></a>
+                      <p>
+                        {{ review.description }}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    <div></div>
   </div>
 </template>
 
