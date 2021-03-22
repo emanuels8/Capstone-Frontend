@@ -89,7 +89,7 @@
         <div>
           <h3>Games For You</h3>
 
-          <div v-for="game in game.rpg.slice(1)" v-bind:key="game.id">
+          <div v-for="game in game.rpg" v-bind:key="game.id">
             <p>{{ game.name }}</p>
             <p>{{ game.price }}</p>
             <img v-bind:src="game.cover_art" contain height="100px" width="150px" />
@@ -99,8 +99,8 @@
           <ul>
             <li>
               <strong>Tags</strong>
-              <div v-for="game in game.genre_name" v-bind:key="game.id">
-                <p>{{ game }}</p>
+              <div v-for="game in game.genres" v-bind:key="game.id">
+                <p>{{ game.name }}</p>
               </div>
             </li>
           </ul>
