@@ -57,7 +57,7 @@ var setupTheme = function() {
       }
     })
   }
-  window.addEventListener('load', navbarlinksActive)
+  // window.addEventListener('load', navbarlinksActive)
   onscroll(document, navbarlinksActive)
   /**
    * Scrolls to an element with header offset
@@ -85,7 +85,7 @@ var setupTheme = function() {
         selectHeader.classList.remove('header-scrolled')
       }
     }
-    window.addEventListener('load', headerScrolled)
+    // window.addEventListener('load', headerScrolled)
     onscroll(document, headerScrolled)
   }
 
@@ -101,7 +101,7 @@ var setupTheme = function() {
         backtotop.classList.remove('active')
       }
     }
-    window.addEventListener('load', toggleBacktotop)
+    // window.addEventListener('load', toggleBacktotop)
     onscroll(document, toggleBacktotop)
   }
 
@@ -145,13 +145,13 @@ var setupTheme = function() {
   /**
    * Scroll with ofset on page load with hash links in the url
    */
-  window.addEventListener('load', () => {
+  // window.addEventListener('load', () => {
     if (window.location.hash) {
       if (select(window.location.hash)) {
         scrollto(window.location.hash)
       }
     }
-  });
+  // });
 
   /**
    * Porfolio isotope and filter
@@ -240,13 +240,13 @@ var setupTheme = function() {
   /**
    * Animation on scroll
    */
-  window.addEventListener('load', () => {
+  // window.addEventListener('load', () => {
     AOS.init({
       duration: 1000,
       easing: 'ease-in-out',
       once: true,
       mirror: false
     })
-  });
+  // });
 
 }

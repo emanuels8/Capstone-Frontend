@@ -14,7 +14,7 @@
               <li data-filter="*" class="filter-active">All</li>
               <li data-filter=".filter-survival">Survival</li>
               <li data-filter=".filter-fps">First Person Shooter</li>
-              <li data-filter=".filter-rpg">RPG</li>
+              <li data-filter=".filter-casual">Casual</li>
               <li data-filter=".filter-multiplayer">Multiplayer</li>
             </ul>
           </div>

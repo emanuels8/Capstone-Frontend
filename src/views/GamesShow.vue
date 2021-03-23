@@ -18,11 +18,14 @@
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="/assets/img/portfolio/portfolio-details-2.jpg" alt="" />
+                  <img src="" alt="" />
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="/assets/img/portfolio/portfolio-details-3.jpg" alt="" />
+                  <img
+                    src="https://gamespot1.cbsistatic.com/uploads/original/1552/15524586/3795413-valheimtip_5.png"
+                    alt=""
+                  />
                 </div>
               </div>
               <div class="swiper-pagination"></div>
