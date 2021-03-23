@@ -13,10 +13,9 @@
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">All</li>
               <li data-filter=".filter-survival">Survival</li>
-              <li data-filter=".filter-first-person">First Person</li>
+              <li data-filter=".filter-fps">First Person Shooter</li>
               <li data-filter=".filter-rpg">RPG</li>
               <li data-filter=".filter-multiplayer">Multiplayer</li>
-              <li data-filter=".filter-puzzle">Puzzle</li>
             </ul>
           </div>
         </div>

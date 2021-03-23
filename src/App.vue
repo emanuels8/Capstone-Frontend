@@ -15,8 +15,13 @@
           <nav id="navbar" class="navbar">
             <ul>
               <li><router-link to="/games">All Games</router-link></li>
-              <li><router-link to="/login">Login</router-link></li>
-              <li><router-link to="/logout">Logout</router-link></li>
+              <!-- <li><router-link to="/login">Login</router-link></li>
+              <li><router-link to="/logout">Logout</router-link></li> -->
+              <router-link v-if="!isLoggedIn()" to="/signup">Signup</router-link>
+              |
+              <router-link v-if="!isLoggedIn()" to="/login">Login</router-link>
+              |
+              <router-link v-if="isLoggedIn()" to="/logout">Logout</router-link>
 
               <li><a class="getstarted" href="http://localhost:8080/signup">Signup</a></li>
             </ul>
@@ -30,7 +35,7 @@
     <!-- End Header -->
     <section id="hero" class="d-flex align-items-center">
       <div class="container text-center position-relative" data-aos="fade-in" data-aos-delay="200">
-        <h1>The Best Site For Game Recommendations</h1>
+        <h1>Good Games</h1>
         <a href="/signup" class="btn-get-started">GG</a>
       </div>
     </section>
@@ -55,3 +60,18 @@
 </template>
 
 <style></style>
+
+<script>
+export default {
+  data: function() {
+    return {
+      flashMessage: "",
+    };
+  },
+  methods: {
+    isLoggedIn: function() {
+      return localStorage.getItem("jwt");
+    },
+  },
+};
+</script>
