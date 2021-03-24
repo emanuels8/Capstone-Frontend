@@ -56,9 +56,11 @@
             <h2>Recommended Games</h2>
 
             <div v-for="rpg in game.rpg" v-bind:key="rpg.id">
-              <h4>{{ rpg.name }}</h4>
-              <h4>{{ rpg.price }}$</h4>
-              <router-link to="/games/19">
+              <div>
+                <h5>{{ rpg.name }}</h5>
+                <h5>{{ rpg.price }}$</h5>
+              </div>
+              <router-link v-bind:to="`/games/${rpg.id}`">
                 <img
                   v-bind:src="rpg.cover_art"
                   v-bind:alt="game.name"
