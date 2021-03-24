@@ -43,25 +43,26 @@
             </li>
           </ul>
         </div>
-        <div class="px-4 py-3"></div>
+        <div class="px-4 py-3">
+          <div v-for="review in user.reviews" v-bind:key="review.id">
+            <div class="col-lg-6 pl-lg-1">
+              <img v-bind:src="review.game.cover_art" height="200px" width="250px" />
+              <h4>{{ review.game.name }}</h4>
+              <p>{{ review.description }}</p>
+
+              <AwesomeVueStarRating
+                :star="review.rating"
+                :starsize="starsize"
+                :hasresults="hasresults"
+                :hasdescription="hasdescription"
+                :ratingdescription="ratingdescription"
+              />
+            </div>
+          </div>
+        </div>
         <div class="py-4 px-4">
           <div class="d-flex align-items-center justify-content-between mb-3">
             <p class="mb-0"></p>
-            <div v-for="review in user.reviews" v-bind:key="review.id">
-              <div class="col-lg-6 pl-lg-1">
-                <img v-bind:src="review.game.cover_art" height="200px" width="250px" />
-                <h4>{{ review.game.name }}</h4>
-                <p>{{ review.description }}</p>
-
-                <AwesomeVueStarRating
-                  :star="review.rating"
-                  :starsize="starsize"
-                  :hasresults="hasresults"
-                  :hasdescription="hasdescription"
-                  :ratingdescription="ratingdescription"
-                />
-              </div>
-            </div>
           </div>
         </div>
       </div>

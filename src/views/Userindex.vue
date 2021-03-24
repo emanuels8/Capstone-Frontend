@@ -34,20 +34,9 @@
                 Average Rating
               </small>
             </li>
-            <li class="list-inline-item">
-              <h6 class="font-weight-bold mb-0 d-block">28</h6>
-              <small class="text-muted">
-                <i class="fas fa-user mr-1"></i>
-                Saved Games
-              </small>
-            </li>
           </ul>
         </div>
-        <div class="px-4 py-3"></div>
-        <div class="py-4 px-4">
-          <div class="d-flex align-items-center justify-content-between mb-3">
-            <h6 class="mb-0">Saved Games</h6>
-          </div>
+        <div class="px-4 py-3">
           <div class="row">
             <div class="col-lg-6 mb-2 pr-lg-1">
               Valheim
@@ -66,6 +55,9 @@
               <img v-bind:src="user.fourth_game_cover_art" class="img-fluid rounded shadow-sm" />
             </div>
           </div>
+        </div>
+        <div class="py-4 px-4">
+          <div class="d-flex align-items-center justify-content-between mb-3"></div>
         </div>
       </div>
     </div>

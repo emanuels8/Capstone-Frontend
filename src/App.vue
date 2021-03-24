@@ -15,7 +15,7 @@
           <nav id="navbar" class="navbar">
             <ul>
               <li><router-link to="/games">All Games</router-link></li>
-              <li><router-link to="/user">Profile</router-link></li>
+              <li><router-link to="/user/2">Profile</router-link></li>
               <!-- <li><router-link to="/login">Login</router-link></li>
               <li><router-link to="/logout">Logout</router-link></li> -->
               <router-link v-if="!isLoggedIn()" to="/signup">Signup</router-link>

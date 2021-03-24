@@ -133,7 +133,7 @@
 
                       <a href="#" class="pull-right"></a>
 
-                      <h6>Rating {{ review.rating }}</h6>
+                      <!-- <h6>Rating {{ review.rating }}</h6> -->
                       <AwesomeVueStarRating
                         :star="review.rating"
                         :starsize="starsize"
