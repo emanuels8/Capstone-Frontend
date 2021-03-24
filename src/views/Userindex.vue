@@ -2,13 +2,6 @@
   <div class="row py-5 px-4">
     <div class="col-md-5 mx-auto">
       <!-- Profile widget -->
-      <!-- <div class="users-show">
-    <h2>{{ user.username }}</h2>
-    <div v-for="review in user.reviews" v-bind:key="review.id">
-      {{ review }}
-    </div>
-    <router-link to="/games">Back to all games</router-link>
-  </div> -->
       <div class="bg-white shadow rounded overflow-hidden">
         <div class="px-4 pt-0 pb-4 cover">
           <div class="media align-items-end profile-head">
@@ -28,17 +21,24 @@
         <div class="bg-light p-4 d-flex justify-content-end text-center">
           <ul class="list-inline mb-0">
             <li class="list-inline-item">
-              <h6 class="font-weight-bold mb-0 d-block">{{ user.reviews.length }}</h6>
+              <h6 class="font-weight-bold mb-0 d-block">12</h6>
               <small class="text-muted">
                 <i class="fas fa-image mr-1"></i>
                 # of reviews
               </small>
             </li>
             <li class="list-inline-item">
-              <h6 class="font-weight-bold mb-0 d-block">{{ user.average_rating }}</h6>
+              <h6 class="font-weight-bold mb-0 d-block">3.5</h6>
               <small class="text-muted">
                 <i class="fas fa-user mr-1"></i>
                 Average Rating
+              </small>
+            </li>
+            <li class="list-inline-item">
+              <h6 class="font-weight-bold mb-0 d-block">28</h6>
+              <small class="text-muted">
+                <i class="fas fa-user mr-1"></i>
+                Saved Games
               </small>
             </li>
           </ul>
@@ -46,14 +46,24 @@
         <div class="px-4 py-3"></div>
         <div class="py-4 px-4">
           <div class="d-flex align-items-center justify-content-between mb-3">
-            <p class="mb-0"></p>
-            <div v-for="review in user.reviews" v-bind:key="review.id">
-              <div class="col-lg-6 pl-lg-1">
-                <img v-bind:src="review.game.cover_art" height="200px" width="250px" />
-                <h4>{{ review.game.name }}</h4>
-                <p>{{ review.description }}</p>
-                <p>{{ review.rating }}</p>
-              </div>
+            <h6 class="mb-0">Saved Games</h6>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 mb-2 pr-lg-1">
+              Valheim
+              <img v-bind:src="user.game_cover_art" class="img-fluid rounded shadow-sm" />
+            </div>
+            <div class="col-lg-6 mb-2 pl-lg-1">
+              The Elder Scrolls Online
+              <img v-bind:src="user.second_game_cover_art" class="img-fluid rounded shadow-sm" />
+            </div>
+            <div class="col-lg-6 pr-lg-1 mb-2">
+              Borderlands 3
+              <img v-bind:src="user.third_game_cover_art" class="img-fluid rounded shadow-sm" />
+            </div>
+            <div class="col-lg-6 pl-lg-1">
+              Crusader Kings III
+              <img v-bind:src="user.fourth_game_cover_art" class="img-fluid rounded shadow-sm" />
             </div>
           </div>
         </div>
@@ -61,7 +71,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import axios from "axios";
 export default {
@@ -71,8 +80,8 @@ export default {
     };
   },
   created: function() {
-    axios.get("/api/user/" + this.$route.params.id).then(response => {
-      console.log("users show", response);
+    axios.get("/api/user").then(response => {
+      console.log("users", response);
       this.user = response.data;
     });
   },

@@ -7,7 +7,8 @@ import ReviewsIndex from "../views/ReviewsIndex.vue";
 import Signup from "../views/Signup.vue";
 import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
-import User from "../views/UserShow.vue";
+import User from "../views/Userindex.vue";
+import UserShow from "../views/UserShow.vue";
 
 Vue.use(VueRouter);
 
@@ -59,6 +60,11 @@ const routes = [
     path: "/user",
     name: "user",
     component: User,
+  },
+  {
+    path: "/user/:id",
+    name: "user-show",
+    component: UserShow,
   },
 ];
 

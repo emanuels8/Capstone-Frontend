@@ -131,7 +131,10 @@
                         height="60px"
                         width="60px"
                       />
-                      <strong class="text-success">{{ review.username }}</strong>
+                      <strong class="text-success">
+                        <router-link v-bind:to="`/user/${review.user_id}`">{{ review.username }}</router-link>
+                      </strong>
+
                       <a href="#" class="pull-right"></a>
 
                       <h6>Rating {{ review.rating }}</h6>
