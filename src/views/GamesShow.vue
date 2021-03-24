@@ -58,7 +58,7 @@
             <div v-for="rpg in game.rpg" v-bind:key="rpg.id">
               <h4>{{ rpg.name }}</h4>
               <h4>{{ rpg.price }}$</h4>
-              <router-link to="/games">
+              <router-link to="/games/19">
                 <img
                   v-bind:src="rpg.cover_art"
                   v-bind:alt="game.name"
@@ -66,13 +66,6 @@
                   width="100px"
                   class="d-block w-100"
                 />
-              </router-link>
-            </div>
-            <div>
-              <h4>{{ game.survival[6].name }}</h4>
-              <h4>{{ game.survival[6].price }}</h4>
-              <router-link to="/games/19">
-                <img v-bind:src="game.survival[6].cover_art" height="200px" width="100px" class="d-block w-100" />
               </router-link>
             </div>
           </div>
@@ -139,7 +132,7 @@
                       <strong class="text-success">{{ review.username }}</strong>
                       <a href="#" class="pull-right"></a>
 
-                      <strong>Rating {{ review.rating }}</strong>
+                      <h6>Rating {{ review.rating }}</h6>
 
                       <p>
                         {{ review.description }}
@@ -155,7 +148,11 @@
     </div>
   </div>
 </template>
-<style scoped></style>
+<style scoped>
+h6 {
+  text-align: left;
+}
+</style>
 
 <script>
 /* global setupTheme */
