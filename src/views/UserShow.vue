@@ -52,7 +52,14 @@
                 <img v-bind:src="review.game.cover_art" height="200px" width="250px" />
                 <h4>{{ review.game.name }}</h4>
                 <p>{{ review.description }}</p>
-                <p>{{ review.rating }}</p>
+
+                <AwesomeVueStarRating
+                  :star="review.rating"
+                  :starsize="starsize"
+                  :hasresults="hasresults"
+                  :hasdescription="hasdescription"
+                  :ratingdescription="ratingdescription"
+                />
               </div>
             </div>
           </div>
@@ -63,11 +70,41 @@
 </template>
 
 <script>
+import AwesomeVueStarRating from "awesome-vue-star-rating";
 import axios from "axios";
 export default {
+  components: {
+    AwesomeVueStarRating,
+  },
   data: function() {
     return {
-      user: {},
+      user: { reviews: [] },
+      star: 5, // default star
+      ratingdescription: [
+        {
+          text: "Poor",
+          class: "star-poor",
+        },
+        {
+          text: "Below Average",
+          class: "star-belowAverage",
+        },
+        {
+          text: "Average",
+          class: "star-average",
+        },
+        {
+          text: "Good",
+          class: "star-good",
+        },
+        {
+          text: "Excellent",
+          class: "star-excellent",
+        },
+      ],
+      hasresults: true,
+      hasdescription: true,
+      starsize: "lg", //xs/6x
     };
   },
   created: function() {

@@ -91,26 +91,22 @@
                       </ul>
 
                       <div class="form-group">
+                        <label>Rating:</label>
+                        <AwesomeVueStarRating
+                          :star="5"
+                          :starsize="starsize"
+                          :hasresults="hasresults"
+                          :hasdescription="hasdescription"
+                          :ratingdescription="ratingdescription"
+                        />
+                      </div>
+                      <div class="form-group">
                         <label>Review:</label>
                         <textarea
                           class="form-control"
                           v-model="description"
                           placeholder="write a review..."
                           rows="3"
-                        ></textarea>
-                      </div>
-
-                      <div class="form-group">
-                        <label>Rating:</label>
-                        <textarea
-                          rows="1"
-                          type="number"
-                          id="numbermax"
-                          name="numbermax"
-                          max="5"
-                          placeholder="1 to 5"
-                          maxclass="form-control"
-                          v-model="rating"
                         ></textarea>
                       </div>
 
@@ -138,6 +134,13 @@
                       <a href="#" class="pull-right"></a>
 
                       <h6>Rating {{ review.rating }}</h6>
+                      <AwesomeVueStarRating
+                        :star="review.rating"
+                        :starsize="starsize"
+                        :hasresults="hasresults"
+                        :hasdescription="hasdescription"
+                        :ratingdescription="ratingdescription"
+                      />
 
                       <p>
                         {{ review.description }}
@@ -163,14 +166,44 @@ h6 {
 /* global setupTheme */
 import axios from "axios";
 import Vue from "vue";
+import AwesomeVueStarRating from "awesome-vue-star-rating";
 export default {
+  components: {
+    AwesomeVueStarRating,
+  },
   data: function() {
     return {
       game: {},
       game_id: this.$route.params.id,
       description: "",
-      rating: "",
+      rating: 0,
       errors: [],
+      star: 5, // default star
+      ratingdescription: [
+        {
+          text: "Poor",
+          class: "star-poor",
+        },
+        {
+          text: "Below Average",
+          class: "star-belowAverage",
+        },
+        {
+          text: "Average",
+          class: "star-average",
+        },
+        {
+          text: "Good",
+          class: "star-good",
+        },
+        {
+          text: "Excellent",
+          class: "star-excellent",
+        },
+      ],
+      hasresults: false,
+      hasdescription: true,
+      starsize: "lg", //xs/6x
     };
   },
   created: function() {
