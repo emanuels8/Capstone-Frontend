@@ -5,7 +5,7 @@
         <div class="row gy-4">
           <div class="col-lg-8">
             <div class="portfolio-details-slider swiper-container">
-              <div class="swiper-wrapper align-items-center">
+              <div carousel class="swiper-wrapper align-items-center">
                 <div class="swiper-slide">
                   <img
                     v-bind:src="game.cover_art"
@@ -63,7 +63,6 @@
               <img
                 v-bind:src="rpg.cover_art"
                 v-bind:alt="game.name"
-                contain
                 height="200px"
                 width="100px"
                 class="d-block w-100"

@@ -15,6 +15,7 @@
           <nav id="navbar" class="navbar">
             <ul>
               <li><router-link to="/games">All Games</router-link></li>
+              <li><router-link to="/user">Profile</router-link></li>
               <!-- <li><router-link to="/login">Login</router-link></li>
               <li><router-link to="/logout">Logout</router-link></li> -->
               <router-link v-if="!isLoggedIn()" to="/signup">Signup</router-link>
@@ -36,7 +37,7 @@
     <section id="hero" class="d-flex align-items-center">
       <div class="container text-center position-relative" data-aos="fade-in" data-aos-delay="200">
         <h1>Good Games</h1>
-        <a href="/signup" class="btn-get-started">GG</a>
+        <a href="/signup" class="btn-get-started">GG Signup</a>
       </div>
     </section>
     <!-- End Hero -->
