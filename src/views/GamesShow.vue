@@ -18,14 +18,11 @@
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="" alt="" />
+                  <img v-bind:src="game.image2" height="400px" width="350px" class="d-block w-100" />
                 </div>
 
                 <div class="swiper-slide">
-                  <img
-                    src="https://gamespot1.cbsistatic.com/uploads/original/1552/15524586/3795413-valheimtip_5.png"
-                    alt=""
-                  />
+                  <img v-bind:src="game.image" height="400px" width="350px" class="d-block w-100" />
                 </div>
               </div>
               <div class="swiper-pagination"></div>
@@ -57,16 +54,26 @@
             </div>
             <div class="portfolio-description"></div>
             <h2>Recommended Games</h2>
+
             <div v-for="rpg in game.rpg" v-bind:key="rpg.id">
               <h4>{{ rpg.name }}</h4>
               <h4>{{ rpg.price }}$</h4>
-              <img
-                v-bind:src="rpg.cover_art"
-                v-bind:alt="game.name"
-                height="200px"
-                width="100px"
-                class="d-block w-100"
-              />
+              <router-link to="/games">
+                <img
+                  v-bind:src="rpg.cover_art"
+                  v-bind:alt="game.name"
+                  height="200px"
+                  width="100px"
+                  class="d-block w-100"
+                />
+              </router-link>
+            </div>
+            <div>
+              <h4>{{ game.survival[6].name }}</h4>
+              <h4>{{ game.survival[6].price }}</h4>
+              <router-link to="/games/19">
+                <img v-bind:src="game.survival[6].cover_art" height="200px" width="100px" class="d-block w-100" />
+              </router-link>
             </div>
           </div>
         </div>
@@ -151,7 +158,9 @@
 <style scoped></style>
 
 <script>
+/* global setupTheme */
 import axios from "axios";
+import Vue from "vue";
 export default {
   data: function() {
     return {
@@ -166,6 +175,10 @@ export default {
     axios.get("/api/games/" + this.$route.params.id).then(response => {
       console.log("game show", response);
       this.game = response.data;
+      Vue.nextTick(function() {
+        setupTheme();
+        // DOM updated
+      });
     });
   },
   methods: {
